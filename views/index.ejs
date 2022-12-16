@@ -1,0 +1,84 @@
+<!DOCTYPE html>    
+</body>
+</html>
+<html>
+    <head lang="en">
+      <title><%= locals.title %></title>
+      <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+      <h1>Todo List App</h1>
+      <div id="container">
+            <!-- Enter a task -->
+            <form action="add-task" method="post">
+              <!-- <div class="form-inputs"> -->
+                <input placeholder="Add a new task" name="task" class="add-task" id="add" />
+                <label for="cat">Category: &nbsp;</label>
+                <select name="category" id="cat" >
+                  <option value="Personal">Personal</option>
+                  <option value="Work">Work</option>
+                  <option value="School">School</option>
+                  <option value="Cleaning">Cleaning</option>
+                  <option value="Other">Other</option>
+                </select>
+                <input type="date" name="date" id="date">
+                <button><i id="add-button" class="fa-solid fa-plus">Add Task</i></button>
+                <!-- <a href="add-task/"><i id="add-button" class="fa-solid fa-plus"></i></a> -->
+              <!-- </div>   -->
+            </form>
+            
+            <!-- Different status and actions -->
+            <div class="status-container">
+              <ul class="status">
+                <li class="action all">All</li>
+                <li class="action pending" >Pending</li>
+                <li class="action complete" >Completed</li>
+                <li class="action completeAll" >Complete All</li>
+                <li class="action clear" >Delete Tasks</li>
+              </ul>
+            </div>
+
+            <!-- Counters  -->
+            <span id="total-tasks">Total tasks: <span id="tasks-counter"><%= totalCount%></span></span>
+            <span id="pending-tasks">Pending: <span id="tasks-counter"><%= incompleteCount %></span></span>
+            <span id="completed-tasks">Completed: <span id="tasks-counter"><%= completeCount %></span></span>
+            
+            <ul id="list"> 
+              <% for(let task of locals.task_list) {%>
+              <li>
+                <input type="checkbox" id="<%= task._id%>" <%= task.isDone ? "checked" : "" %>  class="custom-checkbox">
+                <label for="<%= task._id %>"><%= task.task %></label>
+                <div>  
+                  <span id="category" ><%= task.category %></span>
+                  <!-- <img src="/images/cross.png" class="delete" data-id="${task.id}" /> -->
+                </div>
+              </li>
+              <% } %>
+            </ul>
+      </div>
+
+      <!-- Notification  -->
+      <div id="snack-bar" class="blank">
+        <span> </span>
+      </div>
+      <!-- <script src="/js/script.js"></script> -->
+      <!-- Scripts -->
+      <!-- <script type="text/javascript">
+          toDoList.initiallize();
+      </script> -->
+    </body>
+  </html>
+
+
+
+
+
+
+
+
+
