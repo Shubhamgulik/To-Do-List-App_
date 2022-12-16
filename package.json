@@ -1,0 +1,17 @@
+{
+  "name": "to-do-list-app",
+  "version": "1.0.0",
+  "description": "Creating to-do-list using HTML,CSS,JS,NodeJS,Express",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shubham Gulik",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.0"
+  }
+}
